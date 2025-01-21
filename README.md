@@ -77,6 +77,10 @@ The server is lightweight and can be extended to support additional functionalit
 
   * `getFileintoStringFormat(String relativePath)`: Reads file content as a string (for debugging or HTML serving).
 
+![HttpServer drawio (2)](https://github.com/user-attachments/assets/204d850b-44e1-44f4-97cc-f1d67c255465)
+
+
+
 ## How It Works
 
 ### 1. Startup
