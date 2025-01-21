@@ -48,17 +48,36 @@ public class WebRootHandler {
             relativePath += "web.html";  // By default, serve this file
         }
 
+        if (!relativePath.contains(".")) {
+            relativePath += ".html";
+        }
+
         if(!CheckIfProvidedRelativePathExist(relativePath)){
             throw new FileNotFoundException("This file "+ relativePath+" Not Exist");
         }
 
         File file = new File(webroot, relativePath);
 
-        String mimeType = URLConnection.getFileNameMap().getContentTypeFor(file.getName());
+       String mimeType = URLConnection.getFileNameMap().getContentTypeFor(file.getName());
 
-        if(mimeType == null)
-            return "application/octet-stream";  //return Binary file
-
+        // Fallback for common file types to ensure the right mimeType
+        if (mimeType == null) {
+            if (relativePath.endsWith(".css")) {
+                mimeType = "text/css";
+            } else if (relativePath.endsWith(".js")) {
+                mimeType = "application/javascript";
+            } else if (relativePath.endsWith(".html")) {
+                mimeType = "text/html";
+            } else if (relativePath.endsWith(".png")) {
+                mimeType = "image/png";
+            } else if (relativePath.endsWith(".jpg") || relativePath.endsWith(".jpeg")) {
+                mimeType = "image/jpeg";
+            } else if (relativePath.endsWith(".gif")) {
+                mimeType = "image/gif";
+            } else {
+                mimeType = "application/octet-stream"; // Default fallback
+            }
+        }
         return mimeType;
 
     }
@@ -70,7 +89,7 @@ public class WebRootHandler {
             relativePath += "web.html";  // By default serve this file
         }
 
-        if(!relativePath.endsWith(".html") && !relativePath.equals("/favicon.ico")){ // /favicon.ico is file Requested Automatically by the Browsers to Visualize an icon next to the site Header
+        if (!relativePath.contains(".")) {
             relativePath += ".html";
         }
 
@@ -78,6 +97,7 @@ public class WebRootHandler {
         if(!CheckIfProvidedRelativePathExist(relativePath)){
             throw new FileNotFoundException("This file "+ relativePath+" Not Exist");
         }
+
 
         File file = new File(webroot, relativePath);
         FileInputStream fileInputStream = new FileInputStream(file);

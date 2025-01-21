@@ -1,250 +1,97 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-
-
 *{
-    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
+    font-family: sans-serif;
 }
 
-header{
-    background-color: black;
+.banner{
     width: 100%;
-    position: fixed;/*to maker heaer fixed in the top of page*/
-    z-index: 999;/*to make header fixed not be covered by any elment in page*/
-    display: flex;
-    justify-content: space-between;/*to make space between child element(a/nav) in header */
-    padding: 10px 200px;
-}
-
-.logo{
-    color: orangered;
-    font-size: 1.8em;
-    font-weight: 700;
-    font-family: 'Times New Roman', Times, serif;
-    text-decoration: none;/*remove line under words*/
-}
-
-.navagation a{
+    height: 100vh;
+    background-image:url(../images/back.jpg);
     
-    padding-left: 30px;
-    font-weight: 400;
-    color: orangered;
-    text-decoration: none;
+    background-size: cover;
 }
 
-
-.navagation a:hover{
-    color: aliceblue;
-
-}
-
-section{
-    padding: 100px 200px;
-}
-
-.main{
+.navbar{
     width: 100%;
-    min-height: 100vh;
+   padding-top: 20px;
+    
     display: flex;
     align-items: center;
-    background: url(../imges/staff.jpg);
-    background-size: contain;
-    background-attachment: fixed;
-   
+    justify-content: space-between ;
+    
 }
-
-.main-btn{
-    text-decoration: none;
-    background-color: rgb(61, 3, 3);
-    color: aliceblue;
-    font-size: 1.1em;
-    font-weight: 600;
+.logo{
+  margin-left: 50px;
+}
+.navbar ul li{
+    list-style: none;
     display: inline-block;
-    padding: 0.9375em 2.1875em;
-    letter-spacing: 1px;
-    border-radius: 15px;
-    margin-bottom: 40px;
-    transition: 0.7s ease;
-}
-
-section div a:hover{
-    background-color: orangered;
-    color: black;
-    transform: scale(1.1);
-
-}
-
-.title{
-    display: flex;
-    justify-content: center;
-    color: orangered;
-    font-size: 2.2em;
-    font-weight: 800;
-    margin-bottom: 30px;
-}
-.contant{
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-}
-.courses .contant{
-   margin-top: 30px;
-}
-
-.courses-card{
-    background-color:rgb(43, 1, 1);
-    border: 1px solid black;
-    color: aliceblue;
-    min-height: 14em;
-    width: 24em;
-    overflow: hidden;
-    border-radius: 10px;
-    margin: 20px;
-    transition: 0.7s ease;
-}
-.courses-card:hover{
-    transform: scale(1.1);
-}
-
-.course-imag img{
-  
-    width: 100%;
-}
-.cours-inf{ padding: 0.8em;}
-
-.cours-title{
-    display: flex;
-    justify-content: space-between;
-}
-
-.view-cours{
-    text-decoration: none;
-    color: aliceblue;
-    border-radius: 15px;
-
-}
-
-.event .courses-card{
-    background-color:white;
-    
-    color: black;
-    min-height: 14em;
-    width: 24em;
-    overflow: hidden;
-    
-    margin: 20px;
-    transition: 0.7s ease;
-    box-shadow: 0 5px 25px rgb(1 1 1/50%);
-}
-
-.info{
-    text-align: center;
-    margin: 30px;
-}
-
-
-
-.find{
-    background-color:rgb(61, 3, 3) ;
-    color: aliceblue;
-}
-
-.social-icons{
-     justify-content: center;
-     display: flex;
-
-   }
-.social-icons a{
-    color: white;
-    font-size: 1.7em;
-    padding-right: 30px;
-    
-}
-
-
-.map{
-    width: 100%;
-    height: 50vh;
-    display: flex;
-    align-items: center ;  flex-direction: column; /* to make iteams centered in flex box*/
+    margin: 0  20px;
    
-    justify-content: center;
-    background-position: right;
-    margin-top: 20px;
+    position: relative;
+    
+
+}
+.navbar ul li a{
+    text-decoration: none;
+    color: black;
+    
+    text-transform: uppercase;
+}
+.navbar ul li::after{
+   content: " ";
+    height: 3px;
+    width:0;
+    background-color: gold ;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+   transition: 0.7s;
+}
+
+.navbar ul li:hover::after{
+    width:100% ;
+}
+
+
+.contain{
+    text-align: center;
+    margin-top: 200px;
 
 }
 
-.endbadr{
-    background-color: orangered;
-    justify-content: space-between;
-    padding: 20px;
-    display: flex;
+.contain p{
+    margin-top: 30px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+button{
+    width: 200px;
+    padding: 15px 0;
+    border-radius: 25px;
+    border: 2px solid black;
+    text-align: center;
+    font-size: larger;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    margin-top: 30px;
+    background: transparent; /*to make button take background of page*/ 
+}
+
+span{
+    background-color: gold;
+    
+    height:0;
+    width: 0;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transition: 0.7s;
     
 }
-
-@media (max-width : 1023px)
-{
-    header
-    {
-        padding: 12px 20px;
-    }
-
-    .navagation a{
-        padding-left: 10px;
-    }
-
-    .title{
-        font-size: 1.8em;
-    }
-
-    section{
-        padding: 80px 20px;
-    }
-
-    .main h1 {
-        font-size: 1em;
-    }
-    
-    .main h5{
-        font-size: 1.6em;
-    }
-
-    .contant
-    {
-        flex-direction: column;
-        align-items: center;
-
-    }
-    
-}
-
-
-@media (max-width : 641px)
-{
-    body{
-        font-size: 12px;
-    }
-
-    .main h1 {
-        font-size: 0.8em;
-    }
-
-    .main h5{
-        font-size: 1.6em;
-    }
-
-}
-
-@media (max-width : 300px)
-{
-    body{
-        font-size: 10px;
-    }
-
- 
+button:hover {
+    background-color: grey;
+    transform: scale(1.1);
 }
